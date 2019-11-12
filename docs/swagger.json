@@ -1,0 +1,17 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "TODO Example API",
+        "contact": {},
+        "license": {},
+        "version": "0.1"
+    },
+    "paths": {
+        "/tasks": {
+            "get": {
+                "description": "foofoo",
+                "summary": "hogehoge"
+            }
+        }
+    }
+}

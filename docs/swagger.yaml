@@ -1,0 +1,11 @@
+info:
+  contact: {}
+  license: {}
+  title: TODO Example API
+  version: "0.1"
+paths:
+  /tasks:
+    get:
+      description: foofoo
+      summary: hogehoge
+swagger: "2.0"

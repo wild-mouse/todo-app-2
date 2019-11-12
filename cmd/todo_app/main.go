@@ -3,8 +3,13 @@ package main
 import (
 	"net/http"
 	"github.com/labstack/echo"
+	"github.com/swaggo/echo-swagger"
+
+	_ "github.com/wild-mouse/todo-app-2/docs"
 )
 
+// @title TODO Example API
+// @version 0.1
 func main() {
 	e := echo.New()
 	e.GET("/tasks", getTasks)
@@ -12,6 +17,8 @@ func main() {
 	e.POST("/tasks", saveTask)
 	e.PUT("/tasks/:id", updateTask)
 	e.DELETE("/tasks/:id", deleteTask)
+
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
@@ -21,6 +28,10 @@ type Task struct {
 	Owner string `json:"owner" form:"owner" query:"owner"`
 }
 
+// hoge godoc
+// @Summary hogehoge
+// @Description foofoo
+// @Router /tasks [get]
 func getTasks(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should returns tasks.")
 }
@@ -44,3 +55,4 @@ func updateTask(c echo.Context) error {
 func deleteTask(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should delete single task.")
 }
+
