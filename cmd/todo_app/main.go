@@ -28,9 +28,10 @@ type Task struct {
 	Owner string `json:"owner" form:"owner" query:"owner"`
 }
 
-// hoge godoc
-// @Summary hogehoge
-// @Description foofoo
+// getTasks godoc
+// @Summary Get all tasks
+// @Description Get all tasks
+// @Success 200 {array} Task
 // @Router /tasks [get]
 func getTasks(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should returns tasks.")

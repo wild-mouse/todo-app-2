@@ -9,8 +9,32 @@
     "paths": {
         "/tasks": {
             "get": {
-                "description": "foofoo",
-                "summary": "hogehoge"
+                "description": "Get all tasks",
+                "summary": "Get all tasks",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Task"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.Task": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                }
             }
         }
     }
