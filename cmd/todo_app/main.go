@@ -16,6 +16,11 @@ func main() {
 	e.Logger.Fatal(e.Start(":1323"))
 }
 
+type Task struct {
+	Name string `json:"name" form:"name" query:"name"`
+	Owner string `json:"owner" form:"owner" query:"owner"`
+}
+
 func getTasks(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should returns tasks.")
 }
@@ -25,7 +30,11 @@ func getTask(c echo.Context) error {
 }
 
 func saveTask(c echo.Context) error {
-	return c.String(http.StatusOK, "This endpoint should save single task.")
+	t := new(Task)
+	if err := c.Bind(t); err != nil {
+		return err
+	}
+	return c.JSON(http.StatusOK, t)
 }
 
 func updateTask(c echo.Context) error {
