@@ -37,10 +37,18 @@ func getTasks(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should returns tasks.")
 }
 
+// getTask godoc
+// @Summary Get a task
+// @Success 200 {object} Task
+// @Router /tasks/{id} [get]
 func getTask(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should returns single task.")
 }
 
+// saveTask godoc
+// @Summary Save a task
+// @Success 200
+// @Router /tasks [post]
 func saveTask(c echo.Context) error {
 	t := new(Task)
 	if err := c.Bind(t); err != nil {
@@ -49,10 +57,18 @@ func saveTask(c echo.Context) error {
 	return c.JSON(http.StatusOK, t)
 }
 
+// updateTask godoc
+// @Summary Update a task
+// @Success 200
+// @Router /tasks/{id} [put]
 func updateTask(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should update single task.")
 }
 
+// deleteTask godoc
+// @Summary Delete a task
+// @Success 200
+// @Router /tasks/{id} [delete]
 func deleteTask(c echo.Context) error {
 	return c.String(http.StatusOK, "This endpoint should delete single task.")
 }

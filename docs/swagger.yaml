@@ -23,4 +23,24 @@ paths:
               $ref: '#/definitions/main.Task'
             type: array
       summary: Get all tasks
+    post:
+      responses:
+        "200": {}
+      summary: Save a task
+  /tasks/{id}:
+    delete:
+      responses:
+        "200": {}
+      summary: Delete a task
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Task'
+      summary: Get a task
+    put:
+      responses:
+        "200": {}
+      summary: Update a task
 swagger: "2.0"

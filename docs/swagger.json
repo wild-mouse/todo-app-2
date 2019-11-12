@@ -22,6 +22,37 @@
                         }
                     }
                 }
+            },
+            "post": {
+                "summary": "Save a task",
+                "responses": {
+                    "200": {}
+                }
+            }
+        },
+        "/tasks/{id}": {
+            "get": {
+                "summary": "Get a task",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.Task"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a task",
+                "responses": {
+                    "200": {}
+                }
+            },
+            "delete": {
+                "summary": "Delete a task",
+                "responses": {
+                    "200": {}
+                }
             }
         }
     },
